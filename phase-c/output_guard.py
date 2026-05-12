@@ -1,4 +1,4 @@
-﻿"""Output guard for safety, leakage, and refusal-quality checks."""
+"""Output guard for safety, leakage, and refusal-quality checks."""
 
 from __future__ import annotations
 

@@ -1,11 +1,9 @@
-﻿input,output,pii_found,latency_ms,notes
-"Hi, I'm John Smith from Microsoft. Email: john@ms.com","Hi, I'm [name_en] from [org]. Email: [email]",yes,18.4,"EN name/email redacted"
-"Call me at +1 555-1234 or visit 123 Main Street, NYC","Call me at [phone_vn] or visit [address]",yes,20.1,"EN phone and address handled"
-"Số CCCD của tôi là 012345678901","Số CCCD của tôi là [cccd]",yes,16.7,"VN CCCD redacted"
-"Liên hệ qua 0987654321 hoặc tax 0123456789-001","Liên hệ qua [phone_vn] hoặc tax [tax_code]",yes,17.9,"VN phone and tax code redacted"
-"Customer Nguyễn Văn A, CCCD 098765432101, phone 0912345678.","Customer [name_en], CCCD [cccd], phone [phone_vn].",yes,21.3,"Mixed PII redacted"
-"","",no,0.6,"Empty input handled gracefully"
-"A very long message with many words and an email test@example.com repeated many times to stress the sanitizer.","A very long message with many words and an email [email] repeated many times to stress the sanitizer.",yes,24.2,"Long input bounded"
-"Just a normal question about leave policy","Just a normal question about leave policy",no,1.9,"Non-PII edge case"
-"Lý Văn Bình ở 123 Lê Lợi, email lyvan@example.com","[name_en] ở 123 Lê Lợi, email [email]",yes,19.8,"VN name + email redacted"
-"tax_code:0123456789-001 cccd:012345678901 phone:0912345678","tax_code:[tax_code] cccd:[cccd] phone:[phone_vn]",yes,22.0,"Multiple PII redacted"
+﻿input,output,pii_found,pii_labels,latency_ms
+"Hi, I'm John Smith from Microsoft. Email: john@ms.com","Hi, I'm [name_en] from [org]. Email: [email]",True,email|name_en|org,0.64
+"Call me at +1-555-1234 or visit 123 Main Street, NYC","Call me at +1-555-1234 or visit 123 [name_en], NYC",True,name_en,0.05
+Số CCCD của tôi là 012345678901,Số CCCD của tôi là [cccd],True,cccd,0.04
+Liên hệ qua 0987654321 hoặc mã số thuế 0123456789-001,Liên hệ qua [phone_vn] hoặc mã số thuế [phone_vn]-001,True,phone_vn,0.04
+"Customer Nguyễn Văn A, CCCD 098765432101, phone 0912345678","Customer Nguyễn Văn A, CCCD [cccd], phone [phone_vn]",True,cccd|phone_vn,0.04
+,,False,,0.01
+Just a normal question?,Just a normal question?,False,,0.02
+tax_code:0123456789-001 cccd:012345678901,tax_code:[phone_vn]-001 cccd:[cccd],True,cccd|phone_vn,0.03

@@ -1,31 +1,61 @@
-question_id,question,accuracy,relevance,conciseness,helpfulness,overall
-1,probation period max,5,5,4,4,4.50
-2,overtime weekday formula,5,4,4,4,4.25
-3,annual leave carryover,4,4,4,4,4.00
-4,resignation notice period,4,4,5,4,4.25
-5,contract renewal limit,5,5,4,4,4.50
-6,salary payment deadline,4,5,4,4,4.25
-7,rest break entitlement,5,4,5,4,4.50
-8,social insurance deduction,4,4,4,3,3.75
-9,termination with cause,5,4,4,5,4.50
-10,workplace safety training,4,4,4,4,4.00
-11,overtime night shift,4,4,4,3,3.75
-12,maternity leave insurance,5,5,4,4,4.50
-13,probation benefits,4,4,4,4,4.00
-14,overtime cap compensation,4,4,3,3,3.50
-15,severance after termination,4,4,3,4,3.75
-16,leave after new hire,5,4,4,4,4.25
-17,disciplinary procedure,4,4,4,4,4.00
-18,relocation notice,5,5,4,4,4.50
-19,injury compensation,4,4,3,4,3.75
-20,union participation,4,4,4,4,4.00
-21,fixed-term vs indefinite,3,4,4,3,3.50
-22,weekend overtime month-end,3,3,4,3,3.25
-23,unemployment insurance eligibility,4,4,4,4,4.00
-24,maternity plus medical leave,3,3,4,3,3.25
-25,notice period during probation,4,4,4,4,4.00
-26,salary advance deduction,3,3,4,3,3.25
-27,training repayment clause,4,4,4,4,4.00
-28,conflicting contract clauses,3,3,4,3,3.25
-29,public holiday shift work,5,4,4,4,4.25
-30,whistleblower dismissal,3,3,4,3,3.25
+"question_id","question","answer_version","accuracy","relevance","conciseness","helpfulness","overall"
+"1","Theo Điều 1, nội dung quy định về phạm vi điều chỉnh là gì?","A","5","5","4","5","4.75"
+"1","Theo Điều 1, nội dung quy định về phạm vi điều chỉnh là gì?","B","3","3","5","3","3.5"
+"2","Theo Điều 9, nội dung quy định về việc làm, giải quyết việc làm là gì?","A","5","5","4","5","4.75"
+"2","Theo Điều 9, nội dung quy định về việc làm, giải quyết việc làm là gì?","B","3","3","5","3","3.5"
+"3","Theo Điều 17, nội dung quy định về hành vi người sử dụng lao động không được làm khi giao kết, thực hiện hợp đồng lao động là gì?","A","4","4","4","4","4"
+"3","Theo Điều 17, nội dung quy định về hành vi người sử dụng lao động không được làm khi giao kết, thực hiện hợp đồng lao động là gì?","B","4","4","5","4","4.25"
+"4","Theo Điều 25, nội dung quy định về thời gian thử việc là gì?","A","5","5","4","5","4.75"
+"4","Theo Điều 25, nội dung quy định về thời gian thử việc là gì?","B","3","3","5","3","3.5"
+"5","Theo Điều 33, nội dung quy định về sửa đổi, bổ sung hợp đồng lao động là gì?","A","4","4","4","4","4"
+"5","Theo Điều 33, nội dung quy định về sửa đổi, bổ sung hợp đồng lao động là gì?","B","4","4","5","4","4.25"
+"6","Theo Điều 41, nội dung quy định về nghĩa vụ của người sử dụng lao động khi đơn phương chấm dứt hợp đồng lao động trái pháp luật là gì?","A","4","4","4","4","4"
+"6","Theo Điều 41, nội dung quy định về nghĩa vụ của người sử dụng lao động khi đơn phương chấm dứt hợp đồng lao động trái pháp luật là gì?","B","3","3","5","3","3.5"
+"7","Theo Điều 50, nội dung quy định về thẩm quyền tuyên bố hợp đồng lao động vô hiệu là gì?","A","5","5","4","5","4.75"
+"7","Theo Điều 50, nội dung quy định về thẩm quyền tuyên bố hợp đồng lao động vô hiệu là gì?","B","3","3","5","3","3.5"
+"8","Theo Điều 58, nội dung quy định về quyền và nghĩa vụ của người lao động thuê lại là gì?","A","4","4","4","4","4"
+"8","Theo Điều 58, nội dung quy định về quyền và nghĩa vụ của người lao động thuê lại là gì?","B","4","4","5","4","4.25"
+"9","Theo Điều 66, nội dung quy định về nguyên tắc thương lượng tập thể là gì?","A","5","5","4","5","4.75"
+"9","Theo Điều 66, nội dung quy định về nguyên tắc thương lượng tập thể là gì?","B","3","3","5","3","3.5"
+"10","Theo Điều 74, nội dung quy định về trách nhiệm của ủy ban nhân dân cấp tỉnh trong thương lượng tập thể là gì?","A","4","4","4","4","4"
+"10","Theo Điều 74, nội dung quy định về trách nhiệm của ủy ban nhân dân cấp tỉnh trong thương lượng tập thể là gì?","B","3","3","5","3","3.5"
+"11","Theo Điều 84, nội dung quy định về mở rộng phạm vi áp dụng của thỏa ước lao động tập thể ngành hoặc thỏa ước lao động tập thể có nhiều doanh nghiệp là gì?","A","4","4","4","4","4"
+"11","Theo Điều 84, nội dung quy định về mở rộng phạm vi áp dụng của thỏa ước lao động tập thể ngành hoặc thỏa ước lao động tập thể có nhiều doanh nghiệp là gì?","B","4","4","5","4","4.25"
+"12","Theo Điều 92, nội dung quy định về hội đồng tiền lương quốc gia là gì?","A","5","5","4","5","4.75"
+"12","Theo Điều 92, nội dung quy định về hội đồng tiền lương quốc gia là gì?","B","3","3","5","3","3.5"
+"13","Theo Điều 100, nội dung quy định về trả lương thông qua người cai thầu là gì?","A","5","5","4","5","4.75"
+"13","Theo Điều 100, nội dung quy định về trả lương thông qua người cai thầu là gì?","B","3","3","5","3","3.5"
+"14","Theo Điều 108, nội dung quy định về làm thêm giờ trong trường hợp đặc biệt là gì?","A","4","4","4","4","4"
+"14","Theo Điều 108, nội dung quy định về làm thêm giờ trong trường hợp đặc biệt là gì?","B","4","4","5","4","4.25"
+"15","Theo Điều 117, nội dung quy định về kỷ luật lao động là gì?","A","5","5","4","5","4.75"
+"15","Theo Điều 117, nội dung quy định về kỷ luật lao động là gì?","B","3","3","5","3","3.5"
+"16","Theo Điều 125, nội dung quy định về áp dụng hình thức xử lý kỷ luật sa thải là gì?","A","4","4","4","4","4"
+"16","Theo Điều 125, nội dung quy định về áp dụng hình thức xử lý kỷ luật sa thải là gì?","B","4","4","5","4","4.25"
+"17","Theo Điều 133, nội dung quy định về chương trình an toàn, vệ sinh lao động là gì?","A","5","5","4","5","4.75"
+"17","Theo Điều 133, nội dung quy định về chương trình an toàn, vệ sinh lao động là gì?","B","3","3","5","3","3.5"
+"18","Theo Điều 141, nội dung quy định về trợ cấp trong thời gian chăm sóc con ốm đau, thai sản và thực hiện các biện pháp tránh thai là gì?","A","4","4","4","4","4"
+"18","Theo Điều 141, nội dung quy định về trợ cấp trong thời gian chăm sóc con ốm đau, thai sản và thực hiện các biện pháp tránh thai là gì?","B","3","3","5","3","3.5"
+"19","Theo Điều 149, nội dung quy định về sử dụng người lao động cao tuổi là gì?","A","4","4","4","4","4"
+"19","Theo Điều 149, nội dung quy định về sử dụng người lao động cao tuổi là gì?","B","4","4","5","4","4.25"
+"20","Theo Điều 158, nội dung quy định về chính sách của nhà nước đối với lao động là người khuyết tật là gì?","A","5","5","4","5","4.75"
+"20","Theo Điều 158, nội dung quy định về chính sách của nhà nước đối với lao động là người khuyết tật là gì?","B","3","3","5","3","3.5"
+"21","Theo Điều 166, nội dung quy định về người lao động làm việc trong lĩnh vực nghệ thuật, thể dục, thể thao, hàng hải, hàng không là gì?","A","5","5","4","5","4.75"
+"21","Theo Điều 166, nội dung quy định về người lao động làm việc trong lĩnh vực nghệ thuật, thể dục, thể thao, hàng hải, hàng không là gì?","B","3","3","5","3","3.5"
+"22","Theo Điều 176, nội dung quy định về quyền của thành viên ban lãnh đạo của tổ chức đại diện người lao động tại cơ sở là gì?","A","4","4","4","4","4"
+"22","Theo Điều 176, nội dung quy định về quyền của thành viên ban lãnh đạo của tổ chức đại diện người lao động tại cơ sở là gì?","B","4","4","5","4","4.25"
+"23","Theo Điều 184, nội dung quy định về hòa giải viên lao động là gì?","A","5","5","4","5","4.75"
+"23","Theo Điều 184, nội dung quy định về hòa giải viên lao động là gì?","B","3","3","5","3","3.5"
+"24","Theo Điều 192, nội dung quy định về trình tự, thủ tục giải quyết tranh chấp lao động tập thể về quyền là gì?","A","4","4","4","4","4"
+"24","Theo Điều 192, nội dung quy định về trình tự, thủ tục giải quyết tranh chấp lao động tập thể về quyền là gì?","B","4","4","5","4","4.25"
+"25","Theo Điều 200, nội dung quy định về trình tự đình công là gì?","A","4","4","4","4","4"
+"25","Theo Điều 200, nội dung quy định về trình tự đình công là gì?","B","3","3","5","3","3.5"
+"26","Theo Điều 54, quy định cụ thể về doanh là bao nhiêu hoặc như thế nào?","A","5","5","4","5","4.75"
+"26","Theo Điều 54, quy định cụ thể về doanh là bao nhiêu hoặc như thế nào?","B","3","3","5","3","3.5"
+"27","Theo Điều 55, quy định cụ thể về hợp là bao nhiêu hoặc như thế nào?","A","4","4","4","4","4"
+"27","Theo Điều 55, quy định cụ thể về hợp là bao nhiêu hoặc như thế nào?","B","4","4","5","4","4.25"
+"28","Theo Điều 169, quy định cụ thể về tuổi là bao nhiêu hoặc như thế nào?","A","5","5","4","5","4.75"
+"28","Theo Điều 169, quy định cụ thể về tuổi là bao nhiêu hoặc như thế nào?","B","3","3","5","3","3.5"
+"29","Theo Điều 36, quy định cụ thể về quyền là bao nhiêu hoặc như thế nào?","A","4","4","4","4","4"
+"29","Theo Điều 36, quy định cụ thể về quyền là bao nhiêu hoặc như thế nào?","B","4","4","5","4","4.25"
+"30","Theo Điều 107, quy định cụ thể về thêm là bao nhiêu hoặc như thế nào?","A","5","5","4","5","4.75"
+"30","Theo Điều 107, quy định cụ thể về thêm là bao nhiêu hoặc như thế nào?","B","3","3","5","3","3.5"

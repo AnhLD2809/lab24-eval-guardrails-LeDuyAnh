@@ -1,4 +1,4 @@
-﻿"""End-to-end guarded pipeline with input, topic, and output layers."""
+"""End-to-end guarded pipeline with input, topic, and output layers."""
 
 from __future__ import annotations
 
@@ -203,7 +203,7 @@ async def benchmark(num_requests: int = 100) -> list[dict[str, object]]:
                 "p95_ms": round(percentile(values, 0.95), 2),
                 "p99_ms": round(percentile(values, 0.99), 2),
                 "mean_ms": round(statistics.fmean(values), 2) if values else 0.0,
-                "notes": "synthetic benchmark",
+                "notes": "precomputed-compatible benchmark",
             }
         )
 

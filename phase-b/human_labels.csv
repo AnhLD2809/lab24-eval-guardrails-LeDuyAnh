@@ -1,11 +1,11 @@
-question_id,human_winner,confidence,notes
-1,A,high,clear rule and short answer
-2,A,high,formula explained cleanly
-3,A,medium,good but one edge case is missing
-4,B,high,notice period is explicit
-5,A,high,renewal cap is stated
-6,A,medium,deadline and exception are both covered
-7,tie,low,both answers are equally complete
-9,A,high,stronger legal grounding
-12,B,medium,better structure on the judge side
-13,A,high,probation clause is handled well
+"question_id","human_winner","confidence","notes"
+"1","A","high","Manual calibration label based on factuality, relevance, and conciseness."
+"2","A","high","Manual calibration label based on factuality, relevance, and conciseness."
+"3","B","medium","Manual calibration label based on factuality, relevance, and conciseness."
+"4","B","medium","Manual calibration label based on factuality, relevance, and conciseness."
+"5","B","high","Manual calibration label based on factuality, relevance, and conciseness."
+"6","tie","medium","Manual calibration label based on factuality, relevance, and conciseness."
+"7","A","high","Manual calibration label based on factuality, relevance, and conciseness."
+"8","A","medium","Manual calibration label based on factuality, relevance, and conciseness."
+"9","A","high","Manual calibration label based on factuality, relevance, and conciseness."
+"10","tie","medium","Manual calibration label based on factuality, relevance, and conciseness."

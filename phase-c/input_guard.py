@@ -1,4 +1,4 @@
-﻿"""Input guard for PII redaction and injection hygiene."""
+"""Input guard for PII redaction and injection hygiene."""
 
 from __future__ import annotations
 

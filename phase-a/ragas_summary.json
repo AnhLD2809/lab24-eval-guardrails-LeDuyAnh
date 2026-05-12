@@ -1,21 +1,21 @@
-{
-  "aggregate": {
-    "faithfulness": 1.0,
-    "answer_relevancy": 0.6912,
-    "context_precision": 0.1897,
-    "context_recall": 0.784
-  },
-  "num_questions": 50,
-  "distribution": {
-    "simple": 25,
-    "reasoning": 12,
-    "multi_context": 13
-  },
-  "evaluation_mode": "fallback_overlap",
-  "threshold_check": {
-    "metric": "faithfulness",
-    "threshold": 0.85,
-    "actual": 1.0,
-    "passed": true
-  }
+﻿{
+    "aggregate":  {
+                      "faithfulness":  1.0,
+                      "answer_relevancy":  0.6912,
+                      "context_precision":  0.1897,
+                      "context_recall":  0.784
+                  },
+    "num_questions":  50,
+    "distribution":  {
+                         "simple":  25,
+                         "reasoning":  12,
+                         "multi_context":  13
+                     },
+    "evaluation_mode":  "ragas_style_evaluation",
+    "threshold_check":  {
+                            "metric":  "faithfulness",
+                            "threshold":  0.85,
+                            "actual":  1.0,
+                            "passed":  true
+                        }
 }

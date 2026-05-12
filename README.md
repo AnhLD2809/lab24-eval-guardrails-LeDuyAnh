@@ -2,69 +2,49 @@
 
 ## Overview
 
-Repository này tổng hợp đầy đủ 4 phase của bài lab `eval + guardrails` cho hệ thống hỏi đáp về `Bộ luật Lao động Việt Nam`, sử dụng corpus chính là `data/luat_lao_dong.md`. Mục tiêu của project không chỉ là xây một `RAG pipeline` có thể trả lời câu hỏi pháp lý, mà còn chứng minh pipeline đó được đánh giá có hệ thống, được calibration bằng `LLM-as-judge`, và được bao bọc bởi một `guardrails stack` đủ rõ ràng để nghĩ tới vận hành thực tế.
-
-Ở `Phase A`, repo tạo `synthetic test set` 50 câu hỏi theo 3 nhóm `simple`, `reasoning`, và `multi_context`, sau đó chạy bộ đánh giá kiểu `RAGAS-style` để đo `faithfulness`, `answer relevancy`, `context precision`, và `context recall`. Ở `Phase B`, repo xây `pairwise judge`, `absolute scoring rubric`, `human calibration`, và phân tích `judge bias` để hiểu mức độ đáng tin của `LLM-as-judge`. Ở `Phase C`, repo bổ sung lớp `input guard`, `topic scope validator`, `adversarial defense`, `output guard`, và benchmark độ trễ end-to-end. Cuối cùng, `Phase D` gom kết quả từ ba phase trước thành một `blueprint` có `SLO`, kiến trúc, `incident playbook`, và ước tính chi phí.
-
-Điểm nhấn của repo là mọi artefact cần nộp đều đã được đặt đúng thư mục, số liệu giữa các phase được giữ nhất quán, và phần báo cáo ưu tiên tiếng Việt để dễ chấm, đồng thời vẫn giữ nguyên các thuật ngữ chuyên ngành như `RAGAS`, `swap-and-average`, `Cohen's kappa`, `guardrails`, `latency`, và `SLO` để sát ngữ cảnh kỹ thuật.
+Repo này xây một hệ thống `Legal RAG` cho corpus `data/luat_lao_dong.md`, gồm retrieval/generation, đánh giá `RAGAS-style`, `LLM-as-judge`, calibration với `Cohen's kappa`, guardrails nhiều lớp và blueprint vận hành. Phase A tạo test set 50 câu hỏi cho ba nhóm `simple`, `reasoning`, `multi_context`; Phase B so sánh hai phiên bản trả lời bằng `swap-and-average`; Phase C kiểm tra `PII`, `topic scope`, adversarial input, output safety và latency; Phase D tổng hợp thành tài liệu vận hành có `SLO`, incident playbook và cost analysis.
 
 ## Setup
 
 ```bash
 pip install -r requirements.txt
+export OPENAI_API_KEY=...
 ```
-
-Thiết lập `OPENAI_API_KEY` trong file `.env` nếu muốn chạy lại pipeline với OpenAI thật. Repo vẫn giữ được chế độ `fallback` cục bộ cho một số bước đánh giá và guardrails để dễ tái hiện trong môi trường lab.
 
 ## Results Summary
 
-### Phase A (`RAGAS-style evaluation`)
+### Phase A (RAGAS)
 
-- `testset_v1.csv`: `50` câu hỏi
-- Phân phối: `simple = 25`, `reasoning = 12`, `multi_context = 13`
-- Aggregate metrics:
-  - `faithfulness = 1.0000`
-  - `answer_relevancy = 0.6912`
-  - `context_precision = 0.1897`
-  - `context_recall = 0.7840`
-- `threshold gate`: pass với `faithfulness >= 0.85`
-- Có `3` cluster lỗi chính trong [phase-a/failure_analysis.md](D:/lab24-eval-guardrails-LeDuyAnh/phase-a/failure_analysis.md):
-  - `Lỗi parsing điều kiện / single-hop reasoning`
-  - `Retriever bỏ sót ngữ cảnh chính`
-  - `Lỗi multi-hop reasoning`
+- Test set: `50` questions (`50% simple`, `24% reasoning`, `26% multi-context`)
+- Faithfulness: `1.00` | AR: `0.69` | CP: `0.19` | CR: `0.78`
+- Total eval cost: local run for submitted artifacts; OpenAI judge runner is available in `phase-a/openai_eval.py`
+- Identified `3` failure clusters (see `phase-a/failure_analysis.md`)
 
-### Phase B (`LLM-as-judge`)
+### Phase B (LLM-Judge)
 
-- `pairwise_results.csv`: `30` mẫu
-- Sau `swap-and-average`: `A = 14`, `B = 14`, `tie = 2`
-- `human_labels.csv`: `10` mẫu calibration
-- `Cohen's kappa = 0.57`
-- Hai bias chính: `position bias` và `length bias`
+- Cohen's kappa vs human: `0.68` (`substantial agreement`)
+- Position bias mitigated via `swap-and-average`
+- Final pairwise distribution: `A=15`, `B=11`, `tie=4`
+- Absolute scoring saved in `phase-b/absolute_scores.csv`
+- Bias analysis saved in `phase-b/judge_bias_report.md`
 
-### Phase C (`Guardrails`)
+### Phase C (Guardrails)
 
-- `PII redaction`: `8/8`
-- `Topic scope validator`: `18/20`
-- `Adversarial blocking`: `18/20`
-- `Output safety`: `19/20`
-- `Full stack latency P95`: `88.7ms`
+- PII detection handled across English/Vietnamese and mixed-format inputs
+- Topic validator accuracy: `15/20`
+- Adversarial defense: `18/20`
+- Output safety: `10/10`
+- Full-stack latency P95: `0.52ms`
 
-### Phase D (`Blueprint`)
+### Phase D (Blueprint)
 
-- Blueprint tổng hợp nằm tại [phase-d/blueprint.md](D:/lab24-eval-guardrails-LeDuyAnh/phase-d/blueprint.md)
-- Estimated monthly cost ở giả định `100k queries/month`: **`$386`**
+- Production blueprint: `phase-d/blueprint.md`
+- Includes SLO table, Mermaid architecture diagram, alert playbook, release notes and monthly cost estimate.
 
 ## Lessons Learned
 
-Kết quả Phase A cho thấy pipeline hiện tại giữ `faithfulness` rất cao trong chế độ `fallback_overlap`, nhưng vẫn còn khoảng cách rõ rệt giữa câu `simple` và các câu cần hiểu điều kiện hoặc kết hợp nhiều điều khoản. Nhóm lỗi yếu nhất hiện tập trung vào `reasoning`, `multi_context`, và một phần nhỏ các câu `simple` khi retriever lấy chưa trúng trọng tâm. Điều này hợp lý với một pipeline `RAG` tối giản chưa có reranker hay retrieval strategy chuyên biệt cho legal clauses.
+Nút thắt chính về chất lượng không nằm ở khả năng bám sát dữ kiện cơ bản (factual grounding), mà nằm ở trọng tâm truy xuất (retrieval) đối với các câu hỏi yêu cầu suy luận (reasoning) và đa ngữ cảnh (multi_context). Luồng RAG hiện tại xử lý rất tốt việc tra cứu điều khoản trực tiếp, nhưng với các câu hỏi pháp lý suy luận đa bước (multi-hop), hệ thống cần khả năng xếp hạng lại (reranking) tốt hơn, chỉ số top_k cao hơn và việc tổng hợp câu trả lời một cách rõ ràng hơn.
 
-Phase B và Phase C cho thấy chất lượng và an toàn cần được tách riêng nhưng phối hợp chặt. `LLM-as-judge` hữu ích cho calibration, nhưng vẫn cần `swap-and-average`, human spot-check, và phân tích bias. Trong khi đó, `guardrails` không sửa trực tiếp chất lượng answer, nhưng giúp hệ thống an toàn hơn khi gặp `PII`, `off-topic`, `prompt injection`, hoặc output có nguy cơ leakage.
+Phương pháp LLM-as-judge (dùng LLM làm giám khảo) rất hữu ích cho việc đánh giá trên quy mô lớn, nhưng cần có các biện pháp kiểm soát thiên kiến. Kỹ thuật hoán đổi và lấy trung bình (swap-and-average), chấm điểm tuyệt đối (absolute scoring) và hiệu chuẩn từ con người (human calibration) sẽ giúp bộ đánh giá trở nên đáng tin cậy hơn so với việc chỉ đưa ra quyết định ưu tiên một chiều duy nhất (one-pass preference decision).
 
-## Demo Video
-
-- Vị trí nên đặt file demo: `demo/demo-video.mp4`
-- Hoặc thay bằng YouTube unlisted link tại mục này khi nộp
-- Checklist đề xuất cho video:
-  1. Chạy `Phase A` trên một vài câu hỏi mẫu
-  2. Minh họa `Phase B` pairwise judging
-  3. Minh họa `Phase C` với `PII`, `adversarial`, và `latency benchmark`
+Các cơ chế bảo vệ (Guardrails) nên được xem là một lớp an toàn độc lập chứ không phải để thay thế cho quá trình đánh giá (eval). Các lớp InputGuard, TopicGuard và OutputGuard giúp giảm thiểu rủi ro về quyền riêng tư, vi phạm phạm vi (scope) và các cuộc tấn công đánh lừa (adversarial), trong khi đó Giai đoạn A/B vẫn tiếp tục nhiệm vụ đo lường chất lượng của câu trả lời.

@@ -1,4 +1,4 @@
-﻿"""Topic scope validator for legal-domain inputs."""
+"""Topic scope validator for legal-domain inputs."""
 
 from __future__ import annotations
 

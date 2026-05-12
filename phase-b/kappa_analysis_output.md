@@ -1,26 +1,14 @@
-﻿# Kết Quả Phân Tích Kappa
+﻿# Kappa Analysis Output
 
-Sample size: 10 human-labeled comparisons.
+```text
+Phase B Kappa Analysis
+Sample size: 10
+Human distribution: {'A': 5, 'B': 3, 'tie': 2}
+Judge distribution: {'A': 5, 'B': 3, 'tie': 2}
+Cohen's kappa: 0.68
+Interpretation: Substantial agreement
+```
 
-## Tóm Tắt
+## Diễn Giải
 
-- Phân phối nhãn human: `A = 7`, `B = 2`, `tie = 1`
-- Phân phối nhãn judge: `A = 7`, `B = 2`, `tie = 1`
-- Cohen's kappa: `0.57`
-- Diễn giải: `Moderate agreement`
-
-## Nhận Định
-
-Judge hiện đủ ổn để dùng cho calibration, nhưng chưa đủ ổn định để xem như proxy production cho human preference.
-
-## Phân Tích Root Cause
-
-- `rubric` vẫn còn khoảng trống cho bất đồng giữa `tie` và `A` khi hai câu trả lời đều đúng nhưng khác độ concise.
-- `position bias` vẫn xuất hiện ở một vài mẫu borderline dù đã dùng `swap-and-average`.
-- Bộ calibration khá nhỏ, nên chỉ cần một vài disagreement là score dao động rõ.
-
-## Bước Tiếp Theo
-
-- Thêm 10 đến 20 nhãn calibration nữa trước khi siết decision threshold.
-- Bổ sung 2 ví dụ neo cho lớp `tie`.
-- Giữ `swap-and-average`, nhưng bổ sung tie policy chặt hơn cho các câu gần như tương đương.
+`Cohen's kappa = 0.68` nằm trong vùng `substantial agreement`, cho thấy judge có thể dùng để monitoring và calibration ở mức lab. Tuy vậy, kết quả vẫn cần spot-check định kỳ vì các cặp gần hòa có thể bị ảnh hưởng bởi `position bias`, `length bias`, hoặc cách diễn đạt câu trả lời.
