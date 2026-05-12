@@ -1,0 +1,31 @@
+question_id,question,run1_winner,run2_winner,winner_after_swap
+1,probation period max,A,A,A
+2,overtime weekday formula,A,A,A
+3,annual leave carryover,A,B,B
+4,resignation notice period,B,B,B
+5,contract renewal limit,A,A,A
+6,salary payment deadline,A,A,A
+7,rest break entitlement,tie,tie,tie
+8,social insurance deduction,B,B,B
+9,termination with cause,A,A,A
+10,workplace safety training,A,B,B
+11,overtime night shift,B,B,B
+12,maternity leave insurance,A,A,A
+13,probation benefits,A,A,A
+14,overtime cap compensation,B,B,B
+15,severance after termination,B,A,B
+16,leave after new hire,A,A,A
+17,disciplinary procedure,B,B,B
+18,relocation notice,A,A,A
+19,injury compensation,B,B,B
+20,union participation,A,B,A
+21,fixed-term vs indefinite,B,B,B
+22,weekend overtime month-end,B,A,B
+23,unemployment insurance eligibility,A,A,A
+24,maternity plus medical leave,A,tie,tie
+25,notice period during probation,A,A,A
+26,salary advance deduction,B,B,B
+27,training repayment clause,A,B,A
+28,conflicting contract clauses,B,B,B
+29,public holiday shift work,A,A,A
+30,whistleblower dismissal,B,B,B

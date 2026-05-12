@@ -1,0 +1,31 @@
+question_id,question,accuracy,relevance,conciseness,helpfulness,overall
+1,probation period max,5,5,4,4,4.50
+2,overtime weekday formula,5,4,4,4,4.25
+3,annual leave carryover,4,4,4,4,4.00
+4,resignation notice period,4,4,5,4,4.25
+5,contract renewal limit,5,5,4,4,4.50
+6,salary payment deadline,4,5,4,4,4.25
+7,rest break entitlement,5,4,5,4,4.50
+8,social insurance deduction,4,4,4,3,3.75
+9,termination with cause,5,4,4,5,4.50
+10,workplace safety training,4,4,4,4,4.00
+11,overtime night shift,4,4,4,3,3.75
+12,maternity leave insurance,5,5,4,4,4.50
+13,probation benefits,4,4,4,4,4.00
+14,overtime cap compensation,4,4,3,3,3.50
+15,severance after termination,4,4,3,4,3.75
+16,leave after new hire,5,4,4,4,4.25
+17,disciplinary procedure,4,4,4,4,4.00
+18,relocation notice,5,5,4,4,4.50
+19,injury compensation,4,4,3,4,3.75
+20,union participation,4,4,4,4,4.00
+21,fixed-term vs indefinite,3,4,4,3,3.50
+22,weekend overtime month-end,3,3,4,3,3.25
+23,unemployment insurance eligibility,4,4,4,4,4.00
+24,maternity plus medical leave,3,3,4,3,3.25
+25,notice period during probation,4,4,4,4,4.00
+26,salary advance deduction,3,3,4,3,3.25
+27,training repayment clause,4,4,4,4,4.00
+28,conflicting contract clauses,3,3,4,3,3.25
+29,public holiday shift work,5,4,4,4,4.25
+30,whistleblower dismissal,3,3,4,3,3.25

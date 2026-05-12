@@ -1,0 +1,39 @@
+name: RAG Eval Gate
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Phase A evaluation
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python phase-a/run_phase_a.py --threshold 0.85 --metric faithfulness
+
+      - name: Upload phase-a artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase-a-artifacts
+          path: |
+            phase-a/testset_v1.csv
+            phase-a/testset_review_notes.md
+            phase-a/ragas_results.csv
+            phase-a/ragas_summary.json
+            phase-a/failure_analysis.md
+
