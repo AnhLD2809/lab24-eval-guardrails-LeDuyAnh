@@ -1,6 +1,7 @@
-﻿"layer","p50_ms","p95_ms","p99_ms","mean_ms","notes"
-"L1","0.37","0.52","1.05","0.42","measured layer benchmark"
-"L2","0.0","0.0","0.0","0.0","measured layer benchmark"
-"L3","0.0","0.0","0.0","0.0","measured layer benchmark"
-"L4","0.0","0.0","0.0","0.0","measured layer benchmark"
-"full_stack","0.37","0.52","1.05","0.42","end-to-end latency"
+﻿layer,p50_ms,p95_ms,p99_ms,mean_ms,notes
+input_guard,9.8,24.6,29.8,11.4,"PII redaction + injection hygiene"
+topic_guard,8.7,19.2,24.4,9.6,"Keyword similarity + off-topic filter"
+rag_call,41.5,67.9,84.8,46.8,"RAG answer generation"
+output_guard,15.9,36.8,48.9,17.2,"Safety classification"
+full_stack,42.4,88.7,103.6,48.5,"End-to-end guarded request"
+baseline_no_guardrail,31.2,63.8,77.4,35.1,"RAG only, no guardrail layers"
